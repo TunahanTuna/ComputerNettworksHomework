@@ -13,12 +13,15 @@ SERVER.bind(ADDR)
 def calculate(data):
     (first_data, operation, second_data) = data.split("#") 
     result = ""
-    if first_data== "":
+    if first_data== "" or first_data== "+"or first_data== "*"or first_data== "-"or first_data== "/":
         first_data = 0
-    if second_data == "":
+    if second_data == ""or second_data=="+"or second_data=="*"or second_data=="-"or second_data=="/":
         second_data = 0   
     if operation=="":
         operation = "+"
+    elif operation!="+" or operation!="*"or operation!="-"or operation!="/":
+        operation = "+"   
+            
     if operation == "+":
         result = int(first_data) + int(second_data)
     elif operation == "-":
