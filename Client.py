@@ -10,7 +10,7 @@ ADDR = (HOST,PORT)
 
 CLIENT = socket(AF_INET, SOCK_STREAM)
 CLIENT.connect(ADDR)
-f = open("Client_Log.txt","w")
+f = open("client_log.txt","w")
 print("Çıkış yapmak için bütün alanları boş bırakmanız gerekmektedir!")
 # Gönderilen mesaj
 while True:
@@ -21,8 +21,8 @@ while True:
     initial_time = time()
     CLIENT.send((first_data+"#"+operation+"#"+second_data).encode())
     
-    sleep(0.001) # Sleep fonksiyonunu özellikle ekliyorum localhostta gönderim süresi çok kısa olduğu için sıfırdan farklı bir değer alabilmek adına bu delayi ekledim.
-    
+    sleep(0.001) # Sleep fonksiyonunu özellikle ekliyorum localhostta gönderim süresi çok kısa olduğu   
+    # için sıfırdan farklı bir değer alabilmek adına bu delayi ekledim.
     get_data = CLIENT.recv(BUFFER_SIZE).decode()
     ending_time = time()
     elapsed_time = "Gecikme Suresi: "+ str((ending_time-initial_time))+" seconds"
