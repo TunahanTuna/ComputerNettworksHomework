@@ -11,26 +11,26 @@ SERVER = socket(AF_INET, SOCK_STREAM) # SOCK_STREAM TCP sunucusu olduğunu göst
 SERVER.bind(ADDR)
 
 def calculate(data):
-    (first_data, operation, second_data) = data.split("#") 
+    (first, operation, second) = data.split("#")
     result = ""
-    if first_data== "" or first_data== "+"or first_data== "*"or first_data== "-"or first_data== "/":
-        first_data = 0
-    if second_data == ""or second_data=="+"or second_data=="*"or second_data=="-"or second_data=="/":
-        second_data = 0   
-    if operation=="":
-        operation = "+"
-    elif operation!="+" or operation!="*"or operation!="-"or operation!="/":
-        operation = "+"   
-            
+    if first== "":
+        first = 0
+    if second == "":
+        second = 0   
+    if second== "0" and first == "0" and operation=="/":
+        return "0 / 0 = BOLUNEMEZ "      
+
     if operation == "+":
-        result = int(first_data) + int(second_data)
+        result = int(first) + int(second)
     elif operation == "-":
-       result = int(first_data) - int(second_data)
+        result = int(first) - int(second)
     elif operation == "*":
-        result = int(first_data) * int(second_data)
+        result = int(first) * int(second)
     elif operation == "/":
-        result = float(first_data) / float(second_data)
-    data = "{} {} {} = {} ".format(first_data,operation,second_data,result)
+        result = float(first) / float(second)
+    elif operation!="+" or operation!="-" or operation!="*" or operation!="/" or operation=="":
+        return "Tanimsiz islem! "    
+    data = "{} {} {} = {} ".format(first,operation,second,result)
     return data
       
 
