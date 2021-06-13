@@ -1,3 +1,4 @@
+# Github Link: https://github.com/TunahanTuna/ComputerNetworksHomework
 from socket import *
 import threading
 
@@ -39,13 +40,14 @@ def handleClient(client):
     while status:
         request = client.recv(BUFFER_SIZE).decode()
         print("Gelen veri: "+ request)
-        if request != "##":
-            data = calculate(request)   
-            client.send(data.encode())            
-        if request =="##":
+        if request =="##" or request=="":
             client.send("Baglanti koptu".encode())
             client.close()
             status=False
+        elif request != "##":
+            data = calculate(request)   
+            client.send(data.encode())            
+        
         
         
 
