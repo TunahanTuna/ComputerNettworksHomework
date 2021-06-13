@@ -18,14 +18,14 @@ while True:
     first_data = input("İlk sayıyı giriniz: ")
     second_data = input("İkinci sayıyı giriniz: ")
     operation = input("Yapılacak işlemin sembolünü giriniz(+,-,*,/): ")
-    initial_time = time()
+    initial_time = time() # Data gönderildiği anda ki saat
     CLIENT.send((first_data+"#"+operation+"#"+second_data).encode())
     
-    sleep(0.001) # Sleep fonksiyonunu özellikle ekliyorum localhostta gönderim süresi çok kısa olduğu   
+    sleep(0.001) # Sleep fonksiyonunu özellikle ekliyorum localhostta gönderim süresi çok kısa olduğu  
     # için sıfırdan farklı bir değer alabilmek adına bu delayi ekledim.
     get_data = CLIENT.recv(BUFFER_SIZE).decode()
-    ending_time = time()
-    elapsed_time = "Gecikme Suresi: "+ str((ending_time-initial_time))+" seconds"
+    ending_time = time() # Cevabuın geldiği saat
+    elapsed_time = "Gecikme Suresi: "+ str((ending_time-initial_time))+" seconds" # geçen süre RTT
 
     print(get_data)
     print(elapsed_time)
