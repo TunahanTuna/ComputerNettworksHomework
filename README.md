@@ -10,3 +10,8 @@
 * Gecikme süresi yani RTT Hesaplandı. Ekrana yazıldı.
 
 ### Tüm İsterler Yerine Getirilmiştir. Ek olarak PyQT5 ile basit bir arayüz eklenmiştir.
+
+* Ödevin geliştirildiği github sayfası: https://github.com/TunahanTuna/ComputerNetworksHomework
+
+
+#### Mustafa Tunahan Tuna tarafından oluşturulmuştur.
